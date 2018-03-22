@@ -1,0 +1,12 @@
+[{
+  "modid": "cakeorium",
+  "name": "Cakeorium",
+  "description": "Craft with cake!",
+  "version": "0.1.0.0",
+  "mcversion": "1.10.2",
+  "logoFile": "assets/cakeorium/textures/logo.png",
+  "url": "minecraftforge.net/",
+  "updateJSON": "minecraftforge.net/versions.json",
+  "authorList": ["Svnyster"],
+  "credits": "Thanks to CabbitsAlek and Cabita for the idea and testing."
+}]
