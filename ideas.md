@@ -9,3 +9,5 @@ Higher tiers make stronger cakes, which increase durability and effectiveness
 
 Negative effect of eating item is chipping your tooth, which will deal damage, but still restores your hunger
 Chacnce of chipped tooth increases with cakeorium tiers
+
+Highest tier would cause slowness after eating
