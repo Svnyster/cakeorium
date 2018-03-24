@@ -13,14 +13,14 @@ public class ModItems {
 
     public static void init() {
         ingotCakeorium = register(new ItemBase("ingotCakeorium").setCreativeTab(CreativeTabs.MATERIALS));
-        cakeoriumSword = register(new ItemEdible(Cakeorium.cakeoriumToolMaterial, "cakeoriumSword", 3, 0.6F, false));
+        cakeoriumSword = register(new ItemEdibleSword(Cakeorium.cakeoriumToolMaterial, "cakeoriumSword", 2, 0.4F, 8));
     }
 
     private static <T extends Item> T register(T item) {
         GameRegistry.register(item);
 
         if (item instanceof ItemModelProvider) {
-            ((ItemModelProvider)item).registerItemModel(item);
+            ((ItemModelProvider) item).registerItemModel(item);
         }
 
         return item;
