@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "cakeorium:items/ingotCakeorium"
+    "layer0": "cakeorium:items/cakeorium_ingot"
   }
 }

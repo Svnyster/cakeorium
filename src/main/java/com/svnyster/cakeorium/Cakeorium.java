@@ -4,12 +4,14 @@ import com.svnyster.cakeorium.item.ModItems;
 import com.svnyster.cakeorium.proxy.CommonProxy;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.Level;
 
 @Mod(modid = Cakeorium.MODID, name = "Cakeorium", version = Cakeorium.VERSION, useMetadata = true, updateJSON = "https://github.com/Svnyster/cakeorium/versions.json")
 public class Cakeorium {
@@ -27,7 +29,7 @@ public class Cakeorium {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        System.out.println(NAME + " is loading...");
+        FMLLog.log(NAME, Level.INFO, NAME + " is loading...");
         ModItems.init();
     }
 

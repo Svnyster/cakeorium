@@ -1,6 +1,5 @@
-package com.svnyster.cakeorium.item.tool;
+package com.svnyster.cakeorium.item;
 
-import com.svnyster.cakeorium.item.ItemBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -13,6 +12,8 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class ItemEdible extends ItemBase {
     /**
@@ -38,7 +39,7 @@ public class ItemEdible extends ItemBase {
      */
     private float potionEffectProbability;
 
-    ItemEdible(String name, int amount, float saturation, int duration) {
+    public ItemEdible(String name, int amount, float saturation, int duration) {
         super(name);
         this.initialItemUseDuration = duration;
         this.itemUseDuration = duration;
@@ -47,7 +48,7 @@ public class ItemEdible extends ItemBase {
 
     }
 
-    public ItemEdible(ToolMaterial material, String name, int amount) {
+    public ItemEdible(String name, int amount) {
         this(name, amount, 0.6F, 32);
     }
 
@@ -55,8 +56,9 @@ public class ItemEdible extends ItemBase {
      * Called when the player finishes using this Item (E.g. finishes eating.). Not called when the player stops using
      * the Item before the action is complete.
      */
+    @Nullable
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, EntityLivingBase entityLiving) {
-        stack.damageItem(2, entityLiving);
+        stack.damageItem(this.healAmount, entityLiving);
 
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer entityplayer = (EntityPlayer) entityLiving;

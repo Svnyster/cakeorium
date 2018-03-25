@@ -1,3 +1,7 @@
 # Items
-item.ingotCakeorium.name=Cakeorium Ingot
-item.cakeoriumSword.name=Cakeorium Sword
+item.cakeorium_axe.name=Cakeorium Axe
+item.cakeorium_ingot.name=Cakeorium Ingot
+item.cakeorium_hoe.name=Cakeorium Hoe
+item.cakeorium_pickaxe.name=Cakeorium Pickaxe
+item.cakeorium_shovel.name=Cakeorium Shovel
+item.cakeorium_sword.name=Cakeorium Sword

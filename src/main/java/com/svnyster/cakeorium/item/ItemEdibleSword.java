@@ -1,7 +1,8 @@
-package com.svnyster.cakeorium.item.tool;
+package com.svnyster.cakeorium.item;
 
 import com.google.common.collect.Multimap;
 import com.svnyster.cakeorium.Cakeorium;
+import com.svnyster.cakeorium.item.ItemEdible;
 import com.svnyster.cakeorium.item.ItemModelProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -22,7 +23,7 @@ public class ItemEdibleSword extends ItemEdible implements ItemModelProvider {
     private final float attackDamage;
     private final Item.ToolMaterial material;
 
-    public ItemEdibleSword(ToolMaterial material, String name, int amount, float saturation, int duration) {
+    public ItemEdibleSword(String name, int amount, float saturation, int duration, ToolMaterial material) {
         super(name, amount, saturation, duration);
         this.material = material;
         this.maxStackSize = 1;
