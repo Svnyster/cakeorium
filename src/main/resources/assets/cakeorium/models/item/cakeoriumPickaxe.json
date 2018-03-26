@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "cakeorium:items/cakeorium_sword"
+    "layer0": "cakeorium:items/cakeoriumPickaxe"
   }
 }

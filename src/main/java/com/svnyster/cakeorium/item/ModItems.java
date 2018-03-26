@@ -9,20 +9,21 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class ModItems {
-    public static ItemBase cakeorium_ingot;
-    public static ItemEdibleAxe cakeorium_axe;
-    public static ItemEdibleHoe cakeorium_hoe;
-    public static ItemEdiblePickaxe cakeorium_pickaxe;
-    public static ItemEdibleSpade cakeorium_shovel;
-    public static ItemEdibleSword cakeorium_sword;
+    public static ItemBase cakeoriumIngot;
+    public static ItemEdibleAxe cakeoriumAxe;
+    public static ItemEdibleHoe cakeoriumHoe;
+    public static ItemEdiblePickaxe cakeoriumPickaxe;
+    public static ItemEdibleSpade cakeoriumShovel;
+    public static ItemEdibleSword cakeoriumSword;
 
-    public static void init() {
-        cakeorium_axe = register(new ItemEdibleAxe("cakeorium_axe", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial, 8.0F, -3.2F));
-        cakeorium_hoe = register(new ItemEdibleHoe("cakeorium_hoe", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
-        cakeorium_ingot = register(new ItemBase("cakeorium_ingot").setCreativeTab(CreativeTabs.MATERIALS));
-        cakeorium_pickaxe = register(new ItemEdiblePickaxe("cakeorium_pickaxe", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
-        cakeorium_shovel = register(new ItemEdibleSpade("cakeorium_shovel", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
-        cakeorium_sword = register(new ItemEdibleSword("cakeorium_sword", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
+    public static void preInit() {
+        cakeoriumIngot = register(new ItemOre("cakeoriumIngot", "ingotCakeorium").setCreativeTab(CreativeTabs.MATERIALS));
+
+        cakeoriumAxe = register(new ItemEdibleAxe("cakeoriumAxe", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial, 8.0F, -3.2F));
+        cakeoriumHoe = register(new ItemEdibleHoe("cakeoriumHoe", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
+        cakeoriumPickaxe = register(new ItemEdiblePickaxe("cakeoriumPickaxe", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
+        cakeoriumShovel = register(new ItemEdibleSpade("cakeoriumShovel", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
+        cakeoriumSword = register(new ItemEdibleSword("cakeoriumSword", 2, 0.4F, 8, Cakeorium.cakeoriumToolMaterial));
     }
 
     private static <T extends Item> T register(T item) {
@@ -30,6 +31,9 @@ public class ModItems {
 
         if (item instanceof ItemModelProvider) {
             ((ItemModelProvider) item).registerItemModel(item);
+        }
+        if (item instanceof ItemOreDict) {
+            ((ItemOreDict) item).initOreDict();
         }
 
         return item;

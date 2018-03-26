@@ -1,9 +1,13 @@
 package com.svnyster.cakeorium;
 
+import com.svnyster.cakeorium.fluid.ModFluids;
+import com.svnyster.cakeorium.integration.ModIntegration;
 import com.svnyster.cakeorium.item.ModItems;
 import com.svnyster.cakeorium.proxy.CommonProxy;
+import com.svnyster.cakeorium.recipe.ModRecipes;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -21,6 +25,10 @@ public class Cakeorium {
 
     public static final Item.ToolMaterial cakeoriumToolMaterial = EnumHelper.addToolMaterial("CAKEORIUM", 1, 131, 4.0F, 1.0F, 5);
 
+    static {
+        FluidRegistry.enableUniversalBucket();
+    }
+
     @Mod.Instance(MODID)
     public static Cakeorium instance;
 
@@ -30,7 +38,10 @@ public class Cakeorium {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         FMLLog.log(NAME, Level.INFO, NAME + " is loading...");
-        ModItems.init();
+        ModItems.preInit();
+        ModFluids.preInit();
+        ModFluids.renderFluids();
+        ModIntegration.preInit();
     }
 
     @EventHandler
@@ -40,6 +51,6 @@ public class Cakeorium {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-
+        FMLLog.log(NAME, Level.INFO, NAME + " loaded successfully!");
     }
 }
