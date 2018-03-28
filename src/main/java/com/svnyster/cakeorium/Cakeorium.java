@@ -37,20 +37,16 @@ public class Cakeorium {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        FMLLog.log(NAME, Level.INFO, NAME + " is loading...");
-        ModItems.preInit();
-        ModFluids.preInit();
-        ModFluids.renderFluids();
-        ModIntegration.preInit();
+        proxy.preInit(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        ModRecipes.init();
+        proxy.init(event);
     }
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
-        FMLLog.log(NAME, Level.INFO, NAME + " loaded successfully!");
+        proxy.postInit(event);
     }
 }
